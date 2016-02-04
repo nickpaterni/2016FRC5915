@@ -13,13 +13,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Drivetrain extends Subsystem {
     
-    private static Talon rightMotor = new Talon(RobotMap.rightMotor);
-    private static Talon leftMotor = new Talon(RobotMap.leftMotor);
+    private static Talon frontRightMotor = new Talon(RobotMap.driveRightFrontMotor);
+    private static Talon rearRightMotor = new Talon(RobotMap.driveRightRearMotor);
+    private static Talon frontLeftMotor = new Talon(RobotMap.driveLeftFrontMotor);
+    private static Talon rearLeftMotor = new Talon(RobotMap.driveLeftRearMotor);
     
-    public static RobotDrive drive = new RobotDrive(leftMotor, rightMotor);
+    public static RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
     
     public Drivetrain() {
-    	drive = new RobotDrive(leftMotor, rightMotor);
+    	drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
     	drive.setSafetyEnabled(false);
     }
     
