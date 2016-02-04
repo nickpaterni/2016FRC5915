@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team5915.robot.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -35,9 +34,10 @@ public class OI {
 	static final int RIGHT_AXIS_Y = 5;
 	static final int DPAD_AXIS = 6;
 	
-    Joystick stick = new Joystick(0);
+    public Joystick stick = new Joystick(0);
     
     Button Abutton = new JoystickButton(stick, A_BUTTON);
+    
     
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
