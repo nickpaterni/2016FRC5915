@@ -35,6 +35,8 @@ public class OI {
 	public static final int DPAD_AXIS = 6;
 	
     public Joystick stick = new Joystick(0);
+   // public Joystick stick2 = new Joystick(1);
+    
     
     Button Abutton = new JoystickButton(stick, A_BUTTON);
     

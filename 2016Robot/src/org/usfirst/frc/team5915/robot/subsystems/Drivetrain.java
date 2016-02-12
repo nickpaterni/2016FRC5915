@@ -4,9 +4,11 @@ import org.usfirst.frc.team5915.robot.Robot;
 import org.usfirst.frc.team5915.robot.RobotMap;
 import org.usfirst.frc.team5915.robot.commands.JoystickDrive;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 /**
  *
@@ -18,9 +20,13 @@ public class Drivetrain extends Subsystem {
     private static Talon frontLeftMotor = new Talon(RobotMap.driveLeftFrontMotor);
     private static Talon rearLeftMotor = new Talon(RobotMap.driveLeftRearMotor);
     
-    public static RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+    private static Gyro robotGyro = new AnalogGyro(RobotMap.gyroAnalogPort);
+    private static double kp = .03;
     
+    public static RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+
     public Drivetrain() {
+    	robotGyro.reset();
     	drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
     	drive.setSafetyEnabled(false);
     }
@@ -31,6 +37,12 @@ public class Drivetrain extends Subsystem {
     	//double rotation = Robot.oi.stick.getRawAxis(0);
     	//drive.arcadeDrive(forwardBack, rotation);
     	drive.arcadeDrive(Robot.oi.stick, true);
+    }
+    
+    public void DriveStraight()
+    {
+    	double angle = robotGyro.getAngle();
+    	drive.drive(-1, angle * kp);
     }
 
     public void initDefaultCommand() {
