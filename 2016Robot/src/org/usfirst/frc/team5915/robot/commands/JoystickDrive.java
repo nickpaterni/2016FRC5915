@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5915.robot.commands;
 
+import org.usfirst.frc.team5915.robot.Robot;
 import org.usfirst.frc.team5915.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,7 +23,7 @@ public class JoystickDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.Drive();
+    	drivetrain.Drive(Robot.oi.stick);
     }
 
     // Make this return true when this Command no longer needs to run execute()

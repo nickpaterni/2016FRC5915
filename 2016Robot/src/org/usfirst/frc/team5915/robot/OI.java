@@ -14,28 +14,27 @@ public class OI {
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
     // number it is.
-	public static final int A_BUTTON = 1;
-	public static final int B_BUTTON = 2;
-	public static final int X_BUTTON = 3;
-	public static final int Y_BUTTON = 4;
-	public static final int L_BUMPER = 5;
-	public static final int R_BUMPER = 6;
-	public static final int BACK_BUTTON = 7;
-	public static final int START_BUTTON = 8;
-	public static final int LEFT_STICK_BUTTON = 9;
-	public static final int RIGHT_STICK_BUTTON = 10;
-	public static final int RIGHT_TRIGGER = 11;
-	public static final int LEFT_TRIGGER = 12;
+	public final int A_BUTTON = 1;
+	public final int B_BUTTON = 2;
+	public final int X_BUTTON = 3;
+	public final int Y_BUTTON = 4;
+	public final int L_BUMPER = 5;
+	public final int R_BUMPER = 6;
+	public final int BACK_BUTTON = 7;
+	public final int START_BUTTON = 8;
+	public final int LEFT_STICK_BUTTON = 9;
+	public final int RIGHT_STICK_BUTTON = 10;
+	public final int RIGHT_TRIGGER = 11;
+	public final int LEFT_TRIGGER = 12;
 	
-	public static final int LEFT_AXIS_X = 1;
-	public static final int LEFT_AXIS_Y = 2;
-	public static final int TRIGGER_AXIS = 3;
-	public static final int RIGHT_AXIS_X = 4;
-	public static final int RIGHT_AXIS_Y = 5;
-	public static final int DPAD_AXIS = 6;
+	public final int LEFT_AXIS_X = 1;
+	public final int LEFT_AXIS_Y = 2;
+	public final int TRIGGER_AXIS = 3;
+	public final int RIGHT_AXIS_X = 4;
+	public final int RIGHT_AXIS_Y = 5;
+	public final int DPAD_AXIS = 6;
 	
     public Joystick stick = new Joystick(0);
-   // public Joystick stick2 = new Joystick(1);
     
     
     Button Abutton = new JoystickButton(stick, A_BUTTON);
