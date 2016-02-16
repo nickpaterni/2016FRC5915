@@ -14,15 +14,9 @@ public class ManipulatorArm extends Subsystem {
     
 	public static Talon armUpDownMotor = new Talon(RobotMap.armUpDown);
 	
-	public void MoveArmJoystick(Joystick js) {
-			
-		double movement = js.getRawAxis(OI.RIGHT_AXIS_Y);
-		
-		//create a small deadzone so that the motor will turn off
-		if (movement <= -.90 || movement >=.90)
-			movement = 0;
-		
-		armUpDownMotor.set(movement);
+	public void MoveArm (int direction)
+	{
+		armUpDownMotor.set(direction);
 	}
 
     public void initDefaultCommand() {

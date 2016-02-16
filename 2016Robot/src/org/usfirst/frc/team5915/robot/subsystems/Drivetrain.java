@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  *
  */
 public class Drivetrain extends Subsystem {
-    
     private static Talon frontRightMotor = new Talon(RobotMap.driveRightFrontMotor);
     private static Talon rearRightMotor = new Talon(RobotMap.driveRightRearMotor);
     private static Talon frontLeftMotor = new Talon(RobotMap.driveLeftFrontMotor);
@@ -54,14 +53,17 @@ public class Drivetrain extends Subsystem {
     	}
     }
     
-    public void DriveStraight()
+/*    public void DriveStraight()
     {
     	double angle = robotGyro.getAngle();
     	drive.drive(1, angle * kp);
-    }
+    }*/
 
     public void initDefaultCommand() {
     	setDefaultCommand(new JoystickDrive(this));
     }
+    //public void initDefaultCommand() {
+    	//setDefaultCommand(new JoystickDrive());
+    //}
 }
 

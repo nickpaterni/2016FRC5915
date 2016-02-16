@@ -25,5 +25,10 @@ public class TestAutonCommandGroup extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	addSequential(new MoveArmTime(1.5, -1));
+    	addSequential(new DriveStraight(3.0, 1));
+    	addSequential(new DriveStraight(3.0, -1));
+    	addSequential(new DriveStraight(3.0, 1));
+    	addSequential(new DriveStraight(3.0, -1));
     }
 }
