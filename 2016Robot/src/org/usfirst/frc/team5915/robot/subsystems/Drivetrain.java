@@ -5,6 +5,7 @@ import org.usfirst.frc.team5915.robot.RobotMap;
 import org.usfirst.frc.team5915.robot.commands.JoystickDrive;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.Talon;
@@ -34,13 +35,23 @@ public class Drivetrain extends Subsystem {
     	drive.setSafetyEnabled(false);
     }
     
-    public void Drive()
+    public void Drive(Joystick stick)
     {
     	drive.setInvertedMotor(MotorType.kFrontRight, true);
     	drive.setInvertedMotor(MotorType.kFrontLeft, true);
     	drive.setInvertedMotor(MotorType.kRearLeft, true);
     	drive.setInvertedMotor(MotorType.kRearRight, true);
-    	drive.arcadeDrive(Robot.oi.stick, true);
+    	
+    	if (stick.getRawButton(Robot.oi.L_BUMPER))
+    	{
+    		double move = stick.getRawAxis(Robot.oi.LEFT_AXIS_Y);
+    		double rotate = stick.getRawAxis(Robot.oi.LEFT_AXIS_X);
+        	drive.arcadeDrive(move * .5, rotate * .5);
+    	}
+    	else
+    	{
+        	drive.arcadeDrive(stick, true);
+    	}
     }
     
     public void DriveStraight()
