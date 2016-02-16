@@ -1,19 +1,19 @@
 package org.usfirst.frc.team5915.robot.commands;
 
-import org.usfirst.frc.team5915.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team5915.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
-public class JoystickDrive extends Command {
+public class MoveArm extends Command {
 
-	private static Drivetrain drivetrain = new Drivetrain();
-	
-    public JoystickDrive(Subsystem s) {
-    	requires(s);
+    public MoveArm() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.manipulatorArm);
+
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +22,6 @@ public class JoystickDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.Drive();
     }
 
     // Make this return true when this Command no longer needs to run execute()
