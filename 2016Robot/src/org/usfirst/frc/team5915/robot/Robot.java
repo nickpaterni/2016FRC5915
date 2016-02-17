@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-	public static Drivetrain drivetrain;
+	public static Drivetrain drivetrain = new Drivetrain();
 	public static ManipulatorArm manipulatorArm = new ManipulatorArm();
 	public static Intake intake = new Intake();
 	
