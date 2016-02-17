@@ -43,7 +43,6 @@ public class OI {
 	    Button yButton = new JoystickButton(stick, Y_BUTTON);
 	    yButton.whileHeld(new MoveArm(-1));
 	    yButton.whenReleased(new MoveArm(0));
-    
     }
 }
 

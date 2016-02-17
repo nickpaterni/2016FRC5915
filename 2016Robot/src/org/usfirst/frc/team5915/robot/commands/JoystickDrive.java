@@ -4,7 +4,6 @@ import org.usfirst.frc.team5915.robot.Robot;
 import org.usfirst.frc.team5915.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
@@ -13,12 +12,12 @@ public class JoystickDrive extends Command {
 
 	private static Drivetrain drivetrain = new Drivetrain();
 	
-    public JoystickDrive(Subsystem s) {
-    	requires(s);
-    }
-    //public JoystickDrive() {
-    	//requires(Robot.drivetrain);
+    //public JoystickDrive(Subsystem s) {
+    	//requires(s);
     //}
+    public JoystickDrive() {
+    	requires(Robot.drivetrain);
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5915.robot.commands;
 
 import org.usfirst.frc.team5915.robot.Robot;
+import org.usfirst.frc.team5915.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -9,11 +10,10 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ArmIntake extends Command {
 
+	Intake intake = new Intake();
+	
     public ArmIntake() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.manipulatorArm);
-
+    	requires(Robot.intake);
     }
 
     // Called just before this Command runs the first time
@@ -22,6 +22,7 @@ public class ArmIntake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	intake.MoveIntake(Robot.oi.stick);
     }
 
     // Make this return true when this Command no longer needs to run execute()
