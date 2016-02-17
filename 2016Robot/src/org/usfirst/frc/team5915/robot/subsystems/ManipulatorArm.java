@@ -12,11 +12,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ManipulatorArm extends Subsystem {
     
-	public static Talon armUpDownMotor = new Talon(RobotMap.armUpDown);
+	public static Talon armUpDownMotorLeft = new Talon(RobotMap.armUpDownLeft);
+	public static Talon armUpDownMotorRight = new Talon(RobotMap.armUpDownRight);
 	
 	public void MoveArm (int direction)
 	{
-		armUpDownMotor.set(direction);
+		armUpDownMotorLeft.set(direction);
+		armUpDownMotorRight.set(direction);
 	}
 
     public void initDefaultCommand() {

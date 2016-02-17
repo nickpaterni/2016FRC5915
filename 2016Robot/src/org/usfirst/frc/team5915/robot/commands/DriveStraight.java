@@ -18,8 +18,7 @@ public class DriveStraight extends Command {
     public DriveStraight(double time, int direction) {
     	this.time = time;
     	this.direction = direction;
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+
     	requires(Robot.drivetrain);
     }
 
