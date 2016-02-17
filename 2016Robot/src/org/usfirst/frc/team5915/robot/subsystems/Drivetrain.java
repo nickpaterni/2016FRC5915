@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 
@@ -16,10 +17,10 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  *
  */
 public class Drivetrain extends Subsystem {
-    private static Talon frontRightMotor = new Talon(RobotMap.driveRightFrontMotor);
-    private static Talon rearRightMotor = new Talon(RobotMap.driveRightRearMotor);
-    private static Talon frontLeftMotor = new Talon(RobotMap.driveLeftFrontMotor);
-    private static Talon rearLeftMotor = new Talon(RobotMap.driveLeftRearMotor);
+    private static VictorSP frontRightMotor = new VictorSP(RobotMap.driveRightFrontMotor);
+    private static VictorSP rearRightMotor = new VictorSP(RobotMap.driveRightRearMotor);
+    private static VictorSP frontLeftMotor = new VictorSP(RobotMap.driveLeftFrontMotor);
+    private static VictorSP rearLeftMotor = new VictorSP(RobotMap.driveLeftRearMotor);
     
     public static Gyro robotGyro = new AnalogGyro(RobotMap.gyroAnalogPort);
     public static double kp = .03;
