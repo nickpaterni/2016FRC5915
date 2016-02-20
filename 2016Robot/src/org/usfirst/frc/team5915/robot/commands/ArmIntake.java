@@ -4,6 +4,7 @@ import org.usfirst.frc.team5915.robot.Robot;
 import org.usfirst.frc.team5915.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
@@ -12,9 +13,13 @@ public class ArmIntake extends Command {
 
 	Intake intake = new Intake();
 	
-    public ArmIntake() {
-    	requires(Robot.intake);
-    }
+	public ArmIntake(Subsystem s) 
+	{
+		requires(s);
+	}
+    //public ArmIntake() {
+    	//requires(Robot.intake);
+    //}
 
     // Called just before this Command runs the first time
     protected void initialize() {

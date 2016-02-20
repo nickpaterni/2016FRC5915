@@ -60,7 +60,7 @@ public class Drivetrain extends Subsystem {
     	//setDefaultCommand(new JoystickDrive(this));
     //}
     public void initDefaultCommand() {
-    	setDefaultCommand(new JoystickDrive());
+    	setDefaultCommand(new JoystickDrive(this));
     }
 }
 

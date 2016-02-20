@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class MoveArm extends Command {
-	private int dir = 0;
+	private double dir = 0;
 
-    public MoveArm(int direction) {
+    public MoveArm(double direction) {
     	requires(Robot.manipulatorArm);
 		dir = direction;
     }

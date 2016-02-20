@@ -16,10 +16,10 @@ public class ManipulatorArm extends Subsystem {
 	
 	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.armLimitSwitch);
 	
-	public void MoveArm (int direction)
+	public void MoveArm (double direction)
 	{
 		armUpDownMotorLeft.set(direction);
-		armUpDownMotorRight.set(direction);
+		//armUpDownMotorRight.set(direction);
 	}
 
 	public boolean isArmDown()
