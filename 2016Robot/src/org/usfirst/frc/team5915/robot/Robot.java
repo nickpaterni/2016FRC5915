@@ -24,11 +24,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
+<<<<<<< HEAD
 	public static Drivetrain drivetrain = new Drivetrain();
 	public static ManipulatorArm manipulatorArm = new ManipulatorArm();
 	public static Intake intake = new Intake();
+=======
+	public static Drivetrain drivetrain;
+	public static ManipulatorArm manipulatorArm;
+>>>>>>> parent of bb3dd7b... Fixes for Precisiondrive, 2 motors for lift arm
 	
-    Command autonomousCommand;
+    //Command autonomousCommand;
     //SendableChooser chooser;
     
 
@@ -72,9 +77,7 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-    	autonomousCommand = (new TestAutonCommandGroup());
-		if (autonomousCommand != null)
-    			autonomousCommand.start();
+    	(new TestAutonCommandGroup()).start();
         
     	//autonomousCommand = (Command) chooser.getSelected();
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
@@ -87,6 +90,9 @@ public class Robot extends IterativeRobot {
 			autonomousCommand = new ExampleCommand();
 			break;
 		} */
+    	
+    	// schedule the autonomous command (example)
+        //if (autonomousCommand != null) autonomousCommand.start();
     }
 
     /**
@@ -101,7 +107,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        //if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
     /**

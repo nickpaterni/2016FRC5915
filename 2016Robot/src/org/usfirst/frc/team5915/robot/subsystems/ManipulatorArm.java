@@ -11,15 +11,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ManipulatorArm extends Subsystem {
     
-	public static Talon armUpDownMotorLeft = new Talon(RobotMap.armUpDownLeft);
-	public static Talon armUpDownMotorRight = new Talon(RobotMap.armUpDownRight);
+	public static Talon armUpDownMotor = new Talon(RobotMap.armUpDown);
 	
 	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.armLimitSwitch);
 	
 	public void MoveArm (double direction)
 	{
+<<<<<<< HEAD
 		armUpDownMotorLeft.set(direction);
 		//armUpDownMotorRight.set(direction);
+=======
+		armUpDownMotor.set(direction);
+>>>>>>> parent of bb3dd7b... Fixes for Precisiondrive, 2 motors for lift arm
 	}
 
 	public boolean isArmDown()

@@ -25,8 +25,6 @@ public class Drivetrain extends Subsystem {
     public static Gyro robotGyro = new AnalogGyro(RobotMap.gyroAnalogPort);
     public static double kp = .03;
     
-    public static double speedReduction = .50;
-    
     public static RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
     
     public static Drivetrain instance = new Drivetrain();
@@ -48,13 +46,19 @@ public class Drivetrain extends Subsystem {
     	{
     		double move = stick.getRawAxis(Robot.oi.LEFT_AXIS_Y);
     		double rotate = stick.getRawAxis(Robot.oi.LEFT_AXIS_X);
-        	drive.arcadeDrive(move * speedReduction, rotate * speedReduction, false);
+        	drive.arcadeDrive(move * .5, rotate * .5);
     	}
     	else
     	{
         	drive.arcadeDrive(stick, true);
     	}
     }
+    
+/*    public void DriveStraight()
+    {
+    	double angle = robotGyro.getAngle();
+    	drive.drive(1, angle * kp);
+    }*/
 
     //public void initDefaultCommand() {
     	//setDefaultCommand(new JoystickDrive(this));

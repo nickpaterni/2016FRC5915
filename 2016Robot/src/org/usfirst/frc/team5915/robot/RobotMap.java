@@ -24,9 +24,8 @@ public class RobotMap {
 	
 	
 	//*********Manipulator Arm***************//
-	public static int armUpDownLeft = 5;
-	public static int armUpDownRight = 6;
-	public static int armIntake = 7;
+	public static int armUpDown = 5;
+	public static int armIntake = 6;
 	//***************************************//
 
 }
