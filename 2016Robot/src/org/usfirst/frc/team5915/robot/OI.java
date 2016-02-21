@@ -32,10 +32,26 @@ public class OI {
 	public final int RIGHT_AXIS_Y = 5;
 	public final int DPAD_AXIS = 6;
 	
-    public Joystick stick = new Joystick(0);
+    public Joystick stick;
+    
+    public static OI instance;
+    
+    public static OI GetInstance()
+    {
+    	if (instance==null)
+    		instance=new OI();
+    	return instance;
+    }
+    
+    public Joystick GetStick()
+    {
+    	return stick;
+    }
     
     public OI()
     {
+    	stick = new Joystick(0);
+    	
 	    Button aButton = new JoystickButton(stick, A_BUTTON);
 	    aButton.whileHeld(new MoveArm(1));;
 	    aButton.whenReleased(new MoveArm(0));

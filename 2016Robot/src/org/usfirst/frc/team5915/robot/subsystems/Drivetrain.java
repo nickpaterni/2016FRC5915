@@ -1,42 +1,72 @@
 package org.usfirst.frc.team5915.robot.subsystems;
 
+import org.usfirst.frc.team5915.robot.OI;
 import org.usfirst.frc.team5915.robot.Robot;
 import org.usfirst.frc.team5915.robot.RobotMap;
 import org.usfirst.frc.team5915.robot.commands.JoystickDrive;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class Drivetrain extends Subsystem {
-    private static VictorSP frontRightMotor = new VictorSP(RobotMap.driveRightFrontMotor);
-    private static VictorSP rearRightMotor = new VictorSP(RobotMap.driveRightRearMotor);
-    private static VictorSP frontLeftMotor = new VictorSP(RobotMap.driveLeftFrontMotor);
-    private static VictorSP rearLeftMotor = new VictorSP(RobotMap.driveLeftRearMotor);
+    protected final VictorSP frontRightMotor;
+    protected final VictorSP rearRightMotor;
+    protected final VictorSP frontLeftMotor;
+    protected final VictorSP rearLeftMotor;
     
-    public static Gyro robotGyro = new AnalogGyro(RobotMap.gyroAnalogPort);
-    public static double kp = .03;
+    private final PowerDistributionPanel panel;
     
-    public static RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+    public Gyro robotGyro = new AnalogGyro(RobotMap.gyroAnalogPort);
+    private static double kp = .03;
     
-    public static Drivetrain instance = new Drivetrain();
+    private static double precisionDriveAmount = .50;
+    
+    public static RobotDrive drive;
+    
+    private static Drivetrain instance;
+    
+    public static Drivetrain GetInstance()
+    {
+    	if (instance==null)
+    		instance = new Drivetrain();
+    	return instance;
+    }
     
     public Drivetrain() {
-    	robotGyro.reset();
+    	frontRightMotor = new VictorSP(RobotMap.driveRightFrontMotor);
+    	rearRightMotor  = new VictorSP(RobotMap.driveRightRearMotor);
+    	frontLeftMotor = new VictorSP(RobotMap.driveLeftFrontMotor);
+    	rearLeftMotor = new VictorSP(RobotMap.driveLeftRearMotor);
+    	
+    	panel = new PowerDistributionPanel();
+
     	drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
     	drive.setSafetyEnabled(false);
     }
     
-    public void Drive(Joystick stick)
+    public void LogPower()
     {
+    	SmartDashboard.putNumber("FrontLeft Power: ", panel.getCurrent(RobotMap.powerFrontLeft));
+    	SmartDashboard.putNumber("FrontRight Power: ", panel.getCurrent(RobotMap.powerFrontRight));
+    	SmartDashboard.putNumber("BackLeft Power: ", panel.getCurrent(RobotMap.powerBackLeft));
+    	SmartDashboard.putNumber("BackRight Power: ", panel.getCurrent(RobotMap.powerBackRight));
+    	
+    }
+    
+    public void Drive()
+    {
+    	Joystick stick = OI.GetInstance().GetStick();
+    	
     	drive.setInvertedMotor(MotorType.kFrontRight, true);
     	drive.setInvertedMotor(MotorType.kFrontLeft, true);
     	drive.setInvertedMotor(MotorType.kRearLeft, true);
@@ -46,7 +76,7 @@ public class Drivetrain extends Subsystem {
     	{
     		double move = stick.getRawAxis(Robot.oi.LEFT_AXIS_Y);
     		double rotate = stick.getRawAxis(Robot.oi.LEFT_AXIS_X);
-        	drive.arcadeDrive(move * .5, rotate * .5);
+        	drive.arcadeDrive(move * precisionDriveAmount, rotate * precisionDriveAmount, false);
     	}
     	else
     	{
@@ -54,17 +84,23 @@ public class Drivetrain extends Subsystem {
     	}
     }
     
-/*    public void DriveStraight()
+    public void StopDrive()
+    {    	
+    	drive.arcadeDrive(0,0);
+    }
+    
+    public void DriveStraight(double velocity)
     {
     	double angle = robotGyro.getAngle();
-    	drive.drive(1, angle * kp);
-    }*/
+    	drive.drive(velocity, angle * kp);
+    }
 
     //public void initDefaultCommand() {
     	//setDefaultCommand(new JoystickDrive(this));
     //}
+    @Override
     public void initDefaultCommand() {
-    	setDefaultCommand(new JoystickDrive(this));
+    	setDefaultCommand(new JoystickDrive());
     }
 }
 

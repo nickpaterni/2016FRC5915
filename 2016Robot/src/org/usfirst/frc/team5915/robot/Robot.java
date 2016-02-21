@@ -24,9 +24,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-	public static Drivetrain drivetrain = new Drivetrain();
-	public static ManipulatorArm manipulatorArm = new ManipulatorArm();
-	public static Intake intake = new Intake();
+	public static Drivetrain drivetrain;
+	public static ManipulatorArm manipulatorArm;
+	public static Intake intake;
 
     //Command autonomousCommand;
     //SendableChooser chooser;
@@ -37,10 +37,13 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
-		drivetrain = new Drivetrain();
-		manipulatorArm = new ManipulatorArm();
-		intake = new Intake();
+		drivetrain = Drivetrain.GetInstance();
+    	manipulatorArm = ManipulatorArm.GetInstance();
+    	intake = Intake.GetInstance();
+    	
+    	drivetrain.robotGyro.reset();
+    	
+    	//oi = new OI();
         
 		//chooser = new SendableChooser();
         //chooser.addDefault("Default Auto", new ExampleCommand());

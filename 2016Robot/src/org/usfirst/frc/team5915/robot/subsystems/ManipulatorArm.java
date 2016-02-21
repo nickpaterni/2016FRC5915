@@ -11,9 +11,23 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ManipulatorArm extends Subsystem {
     
-	public static Talon armUpDownMotor = new Talon(RobotMap.armUpDown);
+	public static Talon armUpDownMotor;
+	public static DigitalInput limitSwitch;
 	
-	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.armLimitSwitch);
+	private static ManipulatorArm instance;
+	
+	public static ManipulatorArm GetInstance()
+	{
+		if (instance == null)
+			instance = new ManipulatorArm();
+		return instance;
+	}
+	
+	private ManipulatorArm()
+	{
+		armUpDownMotor = new Talon(RobotMap.armUpDown);
+		limitSwitch = new DigitalInput(RobotMap.armLimitSwitch);
+	}
 	
 	public void MoveArm (double direction)
 	{

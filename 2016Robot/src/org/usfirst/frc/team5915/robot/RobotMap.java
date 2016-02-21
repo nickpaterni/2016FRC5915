@@ -14,6 +14,13 @@ public class RobotMap {
 	public static int driveLeftRearMotor = 3;
 	//***************************************//
 	
+	//*************PDP Ports*****************//
+	public static int powerFrontRight = 1;
+	public static int powerFrontLeft = 2;
+	public static int powerBackRight = 3;
+	public static int powerBackLeft = 4;
+	
+	
 	//*************Analog Sensors******************//
 	public static int gyroAnalogPort = 1;
 	//**************************************//
