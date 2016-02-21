@@ -18,8 +18,12 @@ public class ManipulatorArm extends Subsystem {
 	public void MoveArm (double direction)
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		armUpDownMotorLeft.set(direction);
 		//armUpDownMotorRight.set(direction);
+=======
+		armUpDownMotor.set(direction);
+>>>>>>> parent of bb3dd7b... Fixes for Precisiondrive, 2 motors for lift arm
 =======
 		armUpDownMotor.set(direction);
 >>>>>>> parent of bb3dd7b... Fixes for Precisiondrive, 2 motors for lift arm
