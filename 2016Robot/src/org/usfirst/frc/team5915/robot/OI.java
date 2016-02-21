@@ -45,6 +45,8 @@ public class OI {
     
     public Joystick GetStick()
     {
+    	if (stick == null)
+    		stick = new Joystick(0);
     	return stick;
     }
     
@@ -61,12 +63,12 @@ public class OI {
 	    yButton.whenReleased(new MoveArm(0));
 	    
 	    Button bButton = new JoystickButton(stick, B_BUTTON);
-	    aButton.whileHeld(new MoveArm(.5));;
-	    aButton.whenReleased(new MoveArm(0));
+	    bButton.whileHeld(new MoveArm(.5));;
+	    bButton.whenReleased(new MoveArm(0));
 	    
 	    Button xButton = new JoystickButton(stick, X_BUTTON);
-	    yButton.whileHeld(new MoveArm(-.5));
-	    yButton.whenReleased(new MoveArm(0));
+	    xButton.whileHeld(new MoveArm(-.5));
+	    xButton.whenReleased(new MoveArm(0));
     }
 }
 

@@ -2,7 +2,6 @@
 package org.usfirst.frc.team5915.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -43,7 +42,7 @@ public class Robot extends IterativeRobot {
     	
     	drivetrain.robotGyro.reset();
     	
-    	//oi = new OI();
+    	oi = new OI();
         
 		//chooser = new SendableChooser();
         //chooser.addDefault("Default Auto", new ExampleCommand());
