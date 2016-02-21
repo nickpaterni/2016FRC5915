@@ -24,20 +24,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-<<<<<<< HEAD
-<<<<<<< HEAD
 	public static Drivetrain drivetrain = new Drivetrain();
 	public static ManipulatorArm manipulatorArm = new ManipulatorArm();
 	public static Intake intake = new Intake();
-=======
-	public static Drivetrain drivetrain;
-	public static ManipulatorArm manipulatorArm;
->>>>>>> parent of bb3dd7b... Fixes for Precisiondrive, 2 motors for lift arm
-=======
-	public static Drivetrain drivetrain;
-	public static ManipulatorArm manipulatorArm;
->>>>>>> parent of bb3dd7b... Fixes for Precisiondrive, 2 motors for lift arm
-	
+
     //Command autonomousCommand;
     //SendableChooser chooser;
     
