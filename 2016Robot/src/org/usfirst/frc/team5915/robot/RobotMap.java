@@ -15,10 +15,10 @@ public class RobotMap {
 	//***************************************//
 	
 	//*************PDP Ports*****************//
-	public static int powerFrontRight = 1;
-	public static int powerFrontLeft = 2;
-	public static int powerBackRight = 3;
-	public static int powerBackLeft = 4;
+	public static int powerFrontRight = 0;
+	public static int powerFrontLeft = 1;
+	public static int powerBackRight = 2;
+	public static int powerBackLeft = 3;
 	
 	
 	//*************Analog Sensors******************//

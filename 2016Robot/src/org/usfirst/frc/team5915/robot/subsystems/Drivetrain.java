@@ -51,6 +51,10 @@ public class Drivetrain extends Subsystem {
     	panel = new PowerDistributionPanel();
 
     	drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
+    	drive.setInvertedMotor(MotorType.kFrontRight, true);
+    	drive.setInvertedMotor(MotorType.kFrontLeft, true);
+    	drive.setInvertedMotor(MotorType.kRearLeft, true);
+    	drive.setInvertedMotor(MotorType.kRearRight, true);
     	drive.setSafetyEnabled(false);
     }
     
@@ -67,10 +71,12 @@ public class Drivetrain extends Subsystem {
     {
     	Joystick stick = OI.GetInstance().GetStick();
     	
-    	drive.setInvertedMotor(MotorType.kFrontRight, true);
-    	drive.setInvertedMotor(MotorType.kFrontLeft, true);
-    	drive.setInvertedMotor(MotorType.kRearLeft, true);
-    	drive.setInvertedMotor(MotorType.kRearRight, true);
+//    	drive.setInvertedMotor(MotorType.kFrontRight, true);
+//    	drive.setInvertedMotor(MotorType.kFrontLeft, true);
+//    	drive.setInvertedMotor(MotorType.kRearLeft, true);
+//    	drive.setInvertedMotor(MotorType.kRearRight, true);
+    	
+    	//set up dead zone
     	
     	if (stick.getRawButton(Robot.oi.L_BUMPER))
     	{

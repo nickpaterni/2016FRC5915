@@ -54,21 +54,21 @@ public class OI {
     {
     	stick = new Joystick(0);
     	
-	    Button aButton = new JoystickButton(stick, A_BUTTON);
-	    aButton.whileHeld(new MoveArm(1));;
-	    aButton.whenReleased(new MoveArm(0));
-	    
-	    Button yButton = new JoystickButton(stick, Y_BUTTON);
-	    yButton.whileHeld(new MoveArm(-1));
-	    yButton.whenReleased(new MoveArm(0));
-	    
-	    Button bButton = new JoystickButton(stick, B_BUTTON);
-	    bButton.whileHeld(new MoveArm(.5));;
-	    bButton.whenReleased(new MoveArm(0));
-	    
-	    Button xButton = new JoystickButton(stick, X_BUTTON);
-	    xButton.whileHeld(new MoveArm(-.5));
-	    xButton.whenReleased(new MoveArm(0));
+//	    Button aButton = new JoystickButton(stick, A_BUTTON);
+//	    aButton.whileHeld(new MoveArm(1));
+//	    aButton.whenReleased(new MoveArm(0));
+//	    
+//	    Button yButton = new JoystickButton(stick, Y_BUTTON);
+//	    yButton.whileHeld(new MoveArm(-1));
+//	    yButton.whenReleased(new MoveArm(0));
+//	    
+//	    Button bButton = new JoystickButton(stick, B_BUTTON);
+//	    bButton.whileHeld(new MoveArm(.50));
+//	    bButton.whenReleased(new MoveArm(0));
+//	    
+//	    Button xButton = new JoystickButton(stick, X_BUTTON);
+//	    xButton.whileHeld(new MoveArm(-.50));
+//	    xButton.whenReleased(new MoveArm(0));
     }
 }
 

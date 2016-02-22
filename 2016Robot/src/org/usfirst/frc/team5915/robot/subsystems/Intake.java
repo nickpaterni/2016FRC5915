@@ -29,7 +29,7 @@ public class Intake extends Subsystem {
     {
     	Joystick stick = OI.GetInstance().GetStick();
     	
-    	//trigger value is RightTrigger (0-1) - LeftTrigger (0-1)
+    	//trigger value is RightTrigger (0 1) - LeftTrigger (0 -1)
     	double trigger = stick.getRawAxis(Robot.oi.TRIGGER_AXIS);
     	intakeMotor.set(trigger);
     }
