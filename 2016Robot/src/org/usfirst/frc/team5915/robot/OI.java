@@ -25,7 +25,7 @@ public class OI {
 	public final int RIGHT_TRIGGER = 11;
 	public final int LEFT_TRIGGER = 12;
 	
-	public final int LEFT_AXIS_X = 01;
+	public final int LEFT_AXIS_X = 0;
 	public final int LEFT_AXIS_Y = 1;
 	public final int L_TRIGGER_AXIS = 2;
 	public final int R_TRIGGER_AXIS = 3;
