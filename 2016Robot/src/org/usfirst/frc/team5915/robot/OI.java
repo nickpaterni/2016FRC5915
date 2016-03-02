@@ -25,9 +25,10 @@ public class OI {
 	public final int RIGHT_TRIGGER = 11;
 	public final int LEFT_TRIGGER = 12;
 	
-	public final int LEFT_AXIS_X = 1;
-	public final int LEFT_AXIS_Y = 2;
-	public final int TRIGGER_AXIS = 3;
+	public final int LEFT_AXIS_X = 01;
+	public final int LEFT_AXIS_Y = 1;
+	public final int L_TRIGGER_AXIS = 2;
+	public final int R_TRIGGER_AXIS = 3;
 	public final int RIGHT_AXIS_X = 4;
 	public final int RIGHT_AXIS_Y = 5;
 	public final int DPAD_AXIS = 6;
@@ -53,8 +54,10 @@ public class OI {
     public OI()
     {
     	stick = new Joystick(0);
+    
     	
-//	    Button aButton = new JoystickButton(stick, A_BUTTON);
+    	
+//      Button aButton = new JoystickButton(stick, A_BUTTON);
 //	    aButton.whileHeld(new MoveArm(1));
 //	    aButton.whenReleased(new MoveArm(0));
 //	    

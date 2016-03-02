@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ManipulatorArm extends Subsystem {
     
-	public static Talon armUpDownMotor;
+	public static Talon armUpDownMotorLeft;
+	public static Talon armUpDownMotorRight;
 	public static DigitalInput limitSwitch;
 	
 	private static ManipulatorArm instance;
@@ -29,20 +30,23 @@ public class ManipulatorArm extends Subsystem {
 	
 	private ManipulatorArm()
 	{
-		armUpDownMotor = new Talon(RobotMap.armUpDown);
+		armUpDownMotorLeft = new Talon(RobotMap.armUpDownLeft);
+		armUpDownMotorRight = new Talon(RobotMap.armUpDownRight);
 		limitSwitch = new DigitalInput(RobotMap.armLimitSwitch);
 	}
 	
 	public void MoveArm (double direction)
 	{
-		armUpDownMotor.set(direction);
+		armUpDownMotorLeft.set(direction);
+		armUpDownMotorRight.set(direction);
 	}
 	
 	public void MoveArmJoystick ()
 	{
 		Joystick stick = OI.GetInstance().GetStick();
-		double velocity = stick.getRawAxis(Robot.oi.RIGHT_TRIGGER);
-		armUpDownMotor.set(velocity);
+		double velocity = (stick.getRawAxis(Robot.oi.R_TRIGGER_AXIS) - stick.getRawAxis(Robot.oi.L_TRIGGER_AXIS));
+		armUpDownMotorLeft.set(velocity);
+		armUpDownMotorRight.set(-velocity);
 	}
 
 	public boolean isArmDown()

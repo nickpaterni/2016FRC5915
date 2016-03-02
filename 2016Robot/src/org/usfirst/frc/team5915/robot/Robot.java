@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team5915.robot.commands.TestAutonCommandGroup;
+import org.usfirst.frc.team5915.robot.subsystems.ArmHook;
 import org.usfirst.frc.team5915.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team5915.robot.subsystems.Intake;
 import org.usfirst.frc.team5915.robot.subsystems.ManipulatorArm;
@@ -26,6 +27,7 @@ public class Robot extends IterativeRobot {
 	public static Drivetrain drivetrain;
 	public static ManipulatorArm manipulatorArm;
 	public static Intake intake;
+	public static ArmHook armHook;
 
     //Command autonomousCommand;
     //SendableChooser chooser;
@@ -39,6 +41,7 @@ public class Robot extends IterativeRobot {
 		drivetrain = Drivetrain.GetInstance();
     	manipulatorArm = ManipulatorArm.GetInstance();
     	intake = Intake.GetInstance();
+    	armHook = ArmHook.GetInstance();
     	
     	drivetrain.robotGyro.reset();
     	
