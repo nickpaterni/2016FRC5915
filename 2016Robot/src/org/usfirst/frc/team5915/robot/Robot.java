@@ -108,6 +108,8 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         //if (autonomousCommand != null) autonomousCommand.cancel();
+    	drivetrain.StopDrive();
+    	//would like to put up arm if we can get another limit switch on there
     }
 
     /**

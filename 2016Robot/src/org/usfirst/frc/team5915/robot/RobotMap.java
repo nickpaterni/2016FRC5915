@@ -23,6 +23,7 @@ public class RobotMap {
 	
 	//*************Analog Sensors******************//
 	public static int gyroAnalogPort = 1;
+	public static int gyroTempAnalogPort = 2;
 	//**************************************//
 	
 	//*************Digital Sensors************//

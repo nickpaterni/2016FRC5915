@@ -19,6 +19,8 @@ public class ManipulatorArm extends Subsystem {
 	public static Talon armUpDownMotorRight;
 	public static DigitalInput limitSwitch;
 	
+	private static double reductionAmount = .50;
+	
 	private static ManipulatorArm instance;
 	
 	public static ManipulatorArm GetInstance()
@@ -37,16 +39,23 @@ public class ManipulatorArm extends Subsystem {
 	
 	public void MoveArm (double direction)
 	{
-		armUpDownMotorLeft.set(direction);
-		armUpDownMotorRight.set(direction);
+		armUpDownMotorLeft.set(direction * reductionAmount);
+		armUpDownMotorRight.set(-direction * reductionAmount);
 	}
 	
 	public void MoveArmJoystick ()
 	{
 		Joystick stick = OI.GetInstance().GetStick();
 		double velocity = (stick.getRawAxis(Robot.oi.R_TRIGGER_AXIS) - stick.getRawAxis(Robot.oi.L_TRIGGER_AXIS));
-		armUpDownMotorLeft.set(velocity);
-		armUpDownMotorRight.set(-velocity);
+		
+		if (isArmDown() && velocity < 0)
+		{
+			//trying to push past the limit switch
+			velocity = 0;
+		}
+		
+		armUpDownMotorLeft.set(velocity * reductionAmount);
+		armUpDownMotorRight.set(-velocity * reductionAmount);
 	}
 
 	public boolean isArmDown()
