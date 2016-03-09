@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -48,6 +49,8 @@ public class ManipulatorArm extends Subsystem {
 		Joystick stick = OI.GetInstance().GetStick();
 		double velocity = (stick.getRawAxis(Robot.oi.R_TRIGGER_AXIS) - stick.getRawAxis(Robot.oi.L_TRIGGER_AXIS));
 		
+		SmartDashboard.putBoolean("IsArmDOwn ", isArmDown());
+		
 		if (isArmDown() && velocity < 0)
 		{
 			//trying to push past the limit switch
@@ -60,7 +63,7 @@ public class ManipulatorArm extends Subsystem {
 
 	public boolean isArmDown()
 	{
-		return limitSwitch.get();
+		return !limitSwitch.get();
 	}
 	
     public void initDefaultCommand() {

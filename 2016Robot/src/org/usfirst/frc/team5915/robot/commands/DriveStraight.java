@@ -8,9 +8,9 @@ public class DriveStraight extends Command {
 	double angle;
 	Timer driveTimer;
 	double driveTime;
-	int moveDirection;
+	double moveDirection;
 	
-    public DriveStraight(double time, int direction) {
+    public DriveStraight(double time, double direction) {
     	driveTime = time;
     	moveDirection = direction;
 
@@ -19,6 +19,7 @@ public class DriveStraight extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	driveTimer = new Timer();
     	driveTimer.start();
     }
 

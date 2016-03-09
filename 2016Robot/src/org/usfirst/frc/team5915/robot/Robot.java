@@ -1,12 +1,14 @@
 
 package org.usfirst.frc.team5915.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team5915.robot.commands.TestAutonCommandGroup;
 import org.usfirst.frc.team5915.robot.subsystems.ArmHook;
+import org.usfirst.frc.team5915.robot.subsystems.Camera;
 import org.usfirst.frc.team5915.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team5915.robot.subsystems.Intake;
 import org.usfirst.frc.team5915.robot.subsystems.ManipulatorArm;
@@ -28,6 +30,7 @@ public class Robot extends IterativeRobot {
 	public static ManipulatorArm manipulatorArm;
 	public static Intake intake;
 	public static ArmHook armHook;
+	public static Camera camera;
 
     //Command autonomousCommand;
     //SendableChooser chooser;
@@ -42,6 +45,7 @@ public class Robot extends IterativeRobot {
     	manipulatorArm = ManipulatorArm.GetInstance();
     	intake = Intake.GetInstance();
     	armHook = ArmHook.GetInstance();
+    	camera = Camera.GetInstance();
     	
     	drivetrain.robotGyro.reset();
     	
@@ -116,6 +120,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+    	DriverStation.getInstance().reportError(String.valueOf(camera.isConnected()), false);
         Scheduler.getInstance().run();
     }
     

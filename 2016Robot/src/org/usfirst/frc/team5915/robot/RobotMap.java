@@ -38,7 +38,7 @@ public class RobotMap {
 	//***************************************//
 	
 	//**********Talon SRX Device IDs*********//
-	public static int armHookDeviceID = 0;
+	public static int armHookDeviceID = 1;
 	//***************************************//
 
 }

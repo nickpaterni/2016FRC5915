@@ -29,9 +29,9 @@ public class TestAutonCommandGroup extends CommandGroup {
     	
     	//addSequential(new MoveArmTime(1.5, -1));
     	addSequential(new MoveArmSwitch());
-    	addSequential(new DriveStraight(3.0, 1));
-    	addSequential(new DriveStraight(3.0, -1));
-    	addSequential(new DriveStraight(3.0, 1));
-    	addSequential(new DriveStraight(3.0, -1));
+    	addSequential(new DriveStraight(2.0, -.75));
+    	//addSequential(new DriveStraight(2.0, .75));
+    	//addSequential(new DriveStraight(2.0, -.75));
+    	//addSequential(new DriveStraight(2.0, .75));
     }
 }

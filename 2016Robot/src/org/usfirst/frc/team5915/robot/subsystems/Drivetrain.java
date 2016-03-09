@@ -98,7 +98,9 @@ public class Drivetrain extends Subsystem {
     public void DriveStraight(double velocity)
     {
     	double angle = robotGyro.getAngle();
-    	drive.drive(velocity, angle * kp);
+    	SmartDashboard.putNumber("GyroValue", angle);
+    	//drive.drive(velocity, angle * kp);
+    	drive.drive(velocity,0);
     }
 
     //public void initDefaultCommand() {
