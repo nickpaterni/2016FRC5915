@@ -3,10 +3,12 @@ package org.usfirst.frc.team5915.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import org.usfirst.frc.team5915.robot.commands.TestAutonCommandGroup;
+import org.usfirst.frc.team5915.robot.commands.BarAuto;
+import org.usfirst.frc.team5915.robot.commands.DoubleBarAuto;
 import org.usfirst.frc.team5915.robot.subsystems.ArmHook;
 import org.usfirst.frc.team5915.robot.subsystems.Camera;
 import org.usfirst.frc.team5915.robot.subsystems.Drivetrain;
@@ -32,8 +34,9 @@ public class Robot extends IterativeRobot {
 	public static ArmHook armHook;
 	public static Camera camera;
 
-    //Command autonomousCommand;
-    //SendableChooser chooser;
+	private Command autonomousCommand;
+	
+    private SendableChooser chooser;
     
 
     /**
@@ -51,11 +54,11 @@ public class Robot extends IterativeRobot {
     	
     	oi = new OI();
         
-		//chooser = new SendableChooser();
-        //chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser = new SendableChooser();
+        chooser.addDefault("Single Bar Auto", new BarAuto());
+        chooser.addObject("Double Bar Auto", new DoubleBarAuto());
         
-        //chooser.addObject("My Auto", new MyAutoCommand());
-        //SmartDashboard.putData("Auto mode", chooser);
+        SmartDashboard.putData("Auto mode", chooser);
     }
 	
 	/**
@@ -81,22 +84,9 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-    	(new TestAutonCommandGroup()).start();
-        
-    	//autonomousCommand = (Command) chooser.getSelected();
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
-			break;
-		case "Default Auto":
-		default:
-			autonomousCommand = new ExampleCommand();
-			break;
-		} */
+    	autonomousCommand = (Command) chooser.getSelected(); // Pull the autonomous from the chooser.
     	
-    	// schedule the autonomous command (example)
-        //if (autonomousCommand != null) autonomousCommand.start();
+    	autonomousCommand.start(); // Exectue autonomous.
     }
 
     /**
@@ -120,8 +110,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-    	DriverStation.getInstance().reportError(String.valueOf(camera.isConnected()), false);
-        Scheduler.getInstance().run();
+    	Scheduler.getInstance().run();
     }
     
     /**
