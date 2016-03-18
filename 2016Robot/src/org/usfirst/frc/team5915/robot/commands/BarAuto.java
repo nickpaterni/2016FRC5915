@@ -29,7 +29,7 @@ public class BarAuto extends CommandGroup {
     	
     	//addSequential(new MoveArmTime(1.5, -1));
     	addSequential(new MoveArmSwitch());
-    	addSequential(new DriveStraight(2.0, -.75));
+    	addSequential(new DriveStraight(1.0, -.75));
     	//addSequential(new DriveStraight(2.0, .75));
     	//addSequential(new DriveStraight(2.0, -.75));
     	//addSequential(new DriveStraight(2.0, .75));

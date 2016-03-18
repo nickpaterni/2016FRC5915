@@ -1,5 +1,9 @@
 package org.usfirst.frc.team5915.robot.subsystems;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import org.usfirst.frc.team5915.robot.OI;
 import org.usfirst.frc.team5915.robot.Robot;
 import org.usfirst.frc.team5915.robot.RobotMap;
@@ -98,6 +102,16 @@ public class Drivetrain extends Subsystem {
     public void DriveStraight(double velocity)
     {
     	double angle = robotGyro.getAngle();
+    	
+    	///home/lvuser/Output.txt
+    	try {
+			FileWriter debug = new FileWriter("/home/lvuser/output.txt", true);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
     	SmartDashboard.putNumber("GyroValue", angle);
     	//drive.drive(velocity, angle * kp);
     	drive.drive(velocity,0);

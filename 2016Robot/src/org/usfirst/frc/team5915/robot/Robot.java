@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team5915.robot.commands.BarAuto;
 import org.usfirst.frc.team5915.robot.commands.DoubleBarAuto;
+import org.usfirst.frc.team5915.robot.commands.JustMoveForward;
 import org.usfirst.frc.team5915.robot.subsystems.ArmHook;
 import org.usfirst.frc.team5915.robot.subsystems.Camera;
 import org.usfirst.frc.team5915.robot.subsystems.Drivetrain;
@@ -57,6 +58,7 @@ public class Robot extends IterativeRobot {
 		chooser = new SendableChooser();
         chooser.addDefault("Single Bar Auto", new BarAuto());
         chooser.addObject("Double Bar Auto", new DoubleBarAuto());
+        chooser.addObject("Move Forward", new JustMoveForward());
         
         SmartDashboard.putData("Auto mode", chooser);
     }

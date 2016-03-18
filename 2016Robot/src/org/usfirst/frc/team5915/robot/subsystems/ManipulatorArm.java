@@ -20,7 +20,7 @@ public class ManipulatorArm extends Subsystem {
 	public static Talon armUpDownMotorRight;
 	public static DigitalInput limitSwitch;
 	
-	private static double reductionAmount = .50;
+	private static double reductionAmount = .750;
 	
 	private static ManipulatorArm instance;
 	
@@ -49,7 +49,7 @@ public class ManipulatorArm extends Subsystem {
 		Joystick stick = OI.GetInstance().GetStick();
 		double velocity = (stick.getRawAxis(Robot.oi.R_TRIGGER_AXIS) - stick.getRawAxis(Robot.oi.L_TRIGGER_AXIS));
 		
-		SmartDashboard.putBoolean("IsArmDOwn ", isArmDown());
+		SmartDashboard.putBoolean("IsArmDown ", isArmDown());
 		
 		if (isArmDown() && velocity < 0)
 		{
